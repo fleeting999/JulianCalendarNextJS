@@ -35,14 +35,14 @@ const JulianCalendar = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#343541] text-white p-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#343541] to-[#1f1f1f] text-white p-3 sm:p-4">
       <div className="flex justify-center items-center gap-8 mb-4">
         <button onClick={handlePrevMonth} className="text-2xl px-2">←</button>
-        <h2 className="text-xl font-bold">{format(currentDate, "MMMM yyyy")}</h2>
+        <h2 className="text-xs font-bold">{format(currentDate, "MMMM yyyy")}</h2>
         <button onClick={handleNextMonth} className="text-2xl px-2">→</button>
       </div>
 
-      <div className="text-center grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 gap-4">
+      <div className="text-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3">
         {monthDays.map((day, index) => {
           const isCurrent = isToday(day);
           const isPast = isBefore(day, new Date());
@@ -53,10 +53,10 @@ const JulianCalendar = () => {
           }
 
           const cardStyle = isCurrent
-            ? "bg-red-700"
+            ? "bg-red-700 ring-2 ring-white ring-offset-2"
             : isPast
-            ? "bg-[#1f2022] border border-gray-600 shadow-inner"
-            : "bg-[#444654]";
+            ? "bg-[#3b3b3b] border border-gray-600"
+            : "bg-[#4a4a5a]";
 
           const julian180 = getJulianDate(subDays(day, 180));
           const julian270 = getJulianDate(subDays(day, 270));
@@ -66,29 +66,29 @@ const JulianCalendar = () => {
           return (
             <div
               key={index}
-              className={`rounded-2xl ${cardStyle} p-4 flex flex-col justify-center items-center h-full`}
+              className={`rounded-2xl ${cardStyle} p-2 gap-1 flex flex-col justify-between items-center aspect-square w-full shadow-md hover:shadow-lg transition hover:scale-[0.98] active:scale-95 duration-200`}
             >
-              <div className="flex justify-between w-full text-base text-gray-100 items-start mb-2">
+              <div className="flex justify-between w-full text-xs text-gray-100 items-start mb-1">
                 <div className="flex flex-col items-start">
-                  <span className="text-base font-semibold mb-1">180</span>
-                  <span className="text-base">{julian180}</span>
+                  <span className="text-sm font-semibold mb-1">180</span>
+                  <span className="text-sm">{julian180}</span>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="text-base font-semibold mb-1">270</span>
-                  <span className="text-base">{julian270}</span>
+                  <span className="text-sm font-semibold mb-1">270</span>
+                  <span className="text-sm">{julian270}</span>
                 </div>
               </div>
-              <div className="text-base text-gray-200 mb-1">{format(day, "EEE")}</div>
-              <div className="text-xl font-extrabold text-white mb-1">{format(day, "d")}</div>
-              <div className="text-base text-gray-200 mb-2">{getJulianDate(day)}</div>
-              <div className="flex justify-between w-full text-base text-gray-100 mt-2">
+              <div className="text-sm text-gray-200 mb-1">{format(day, "EEE")}</div>
+              <div className="text-sm font-bold text-white mb-1">{format(day, "d")}</div>
+              <div className="text-sm text-gray-200 mb-2">{getJulianDate(day)}</div>
+              <div className="flex justify-between w-full text-sm text-gray-100 mt-1">
                 <div className="flex flex-col items-start">
-                  <span className="text-base font-semibold mb-1">180</span>
-                  <span className="text-base">{date180}</span>
+                  <span className="text-sm font-semibold mb-1">180</span>
+                  <span className="text-sm">{date180}</span>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="text-base font-semibold mb-1">270</span>
-                  <span className="text-base">{date270}</span>
+                  <span className="text-sm font-semibold mb-1">270</span>
+                  <span className="text-sm">{date270}</span>
                 </div>
               </div>
             </div>
