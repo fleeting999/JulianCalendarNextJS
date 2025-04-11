@@ -38,7 +38,7 @@ const JulianCalendar = () => {
     <div className="min-h-screen bg-[#343541] text-white p-4">
       <div className="flex justify-center items-center gap-8 mb-4">
         <button onClick={handlePrevMonth} className="text-2xl px-2">←</button>
-        <h2 className="text-xl font-bold">{format(currentDate, "MMMM yyyy")}</h2>
+        <h2 className="text-xs font-bold">{format(currentDate, "MMMM yyyy")}</h2>
         <button onClick={handleNextMonth} className="text-2xl px-2">→</button>
       </div>
 
@@ -66,29 +66,29 @@ const JulianCalendar = () => {
           return (
             <div
               key={index}
-              className={`rounded-2xl ${cardStyle} p-4 flex flex-col justify-center items-center h-full`}
+              className={`rounded-2xl ${cardStyle} p-2 gap-1 flex flex-col justify-between items-center aspect-square w-full`}
             >
-              <div className="flex justify-between w-full text-base text-gray-100 items-start mb-2">
+              <div className="flex justify-between w-full text-sm text-gray-100 items-start mb-1">
                 <div className="flex flex-col items-start">
-                  <span className="text-base font-semibold mb-1">180</span>
-                  <span className="text-base">{julian180}</span>
+                  <span className="text-sm font-semibold mb-1">180</span>
+                  <span className="text-sm">{julian180}</span>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="text-base font-semibold mb-1">270</span>
-                  <span className="text-base">{julian270}</span>
+                  <span className="text-sm font-semibold mb-1">270</span>
+                  <span className="text-sm">{julian270}</span>
                 </div>
               </div>
-              <div className="text-base text-gray-200 mb-1">{format(day, "EEE")}</div>
-              <div className="text-xl font-extrabold text-white mb-1">{format(day, "d")}</div>
-              <div className="text-base text-gray-200 mb-2">{getJulianDate(day)}</div>
-              <div className="flex justify-between w-full text-base text-gray-100 mt-2">
+              <div className="text-sm text-gray-200 mb-1">{format(day, "EEE")}</div>
+              <div className="text-sm font-bold text-white mb-1">{format(day, "d")}</div>
+              <div className="text-sm text-gray-200 mb-2">{getJulianDate(day)}</div>
+              <div className="flex justify-between w-full text-sm text-gray-100 mt-1">
                 <div className="flex flex-col items-start">
-                  <span className="text-base font-semibold mb-1">180</span>
-                  <span className="text-base">{date180}</span>
+                  <span className="text-sm font-semibold mb-1">180</span>
+                  <span className="text-sm">{date180}</span>
                 </div>
                 <div className="flex flex-col items-end">
-                  <span className="text-base font-semibold mb-1">270</span>
-                  <span className="text-base">{date270}</span>
+                  <span className="text-sm font-semibold mb-1">270</span>
+                  <span className="text-sm">{date270}</span>
                 </div>
               </div>
             </div>
