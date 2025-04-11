@@ -23,10 +23,12 @@ const generateCalendar = (year, month) => {
 
 const JulianCalendar = () => {
   const [currentDate, setCurrentDate] = useState(() => {
-    const today = new Date();
-    const isMobile = window.innerWidth <= 768;
-    return isMobile ? today : new Date();
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      return new Date();
+    }
+    return new Date();
   });
+
   const monthDays = generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
   const currentMonth = currentDate.getMonth();
 
